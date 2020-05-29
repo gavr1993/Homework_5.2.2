@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Homework_5.2.1</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="registration">registration</string>
+    <string name="loginPls">Введите логин!</string>
+    <string name="passPls">Введите пароль!</string>
+    <string name="loginFileName">login.txt</string>
+    <string name="passFileName">pass.txt</string>
+    <string name="loginOk">Авторизация прошла успешно.</string>
+    <string name="loginErr">Неверные логин и/или пароль!</string>
+    <string name="regFail">Логин и/или пароль уже существуют. Авторизируйтесь, или попробуйте другие.</string>
+    <string name="regOk">Регистрация прошла успешно.</string>
+</resources>
