@@ -39,35 +39,45 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (loginEdtx.getText().toString().equals(null)) {
-                    Toast.makeText(MainActivity.this, R.string.loginPls, Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.loginPls,
+                            Toast.LENGTH_SHORT);
+                    toast.show();
+
                 } else if (passEdtx.getText().toString().equals(null)) {
-                    Toast.makeText(MainActivity.this, R.string.passPls, Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.passPls,
+                            Toast.LENGTH_SHORT);
+                    toast.show();
                 } else {
                     try {
-                        FileInputStream fileInputStream = openFileInput(getString(R.string.loginFileName));
-                        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+                        FileInputStream fileInputStream = openFileInput(getString(
+                                R.string.loginFileName));
+                        InputStreamReader inputStreamReader = new InputStreamReader(
+                                fileInputStream);
                         BufferedReader reader = new BufferedReader(inputStreamReader);
                         loginInFile = reader.readLine();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
                     try {
-                        FileInputStream fileInputStream = openFileInput(getString(R.string.passFileName));
-                        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+                        FileInputStream fileInputStream = openFileInput(getString(
+                                R.string.passFileName));
+                        InputStreamReader inputStreamReader = new InputStreamReader(
+                                fileInputStream);
                         BufferedReader reader = new BufferedReader(inputStreamReader);
                         passInFile = reader.readLine();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if (loginEdtx.getText().toString().equals(loginInFile) && passEdtx.getText().toString().equals(passInFile)) {
-                        Toast.makeText(MainActivity.this, R.string.loginOk, Toast.LENGTH_LONG);
+                    if (loginEdtx.getText().toString().equals(loginInFile) && passEdtx.getText().
+                            toString().equals(passInFile)) {
+                        Toast toast = Toast.makeText(MainActivity.this, R.string.loginOk,
+                                Toast.LENGTH_LONG);
+                        toast.show();
                     } else {
-                        Toast.makeText(MainActivity.this, R.string.loginErr, Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(MainActivity.this, R.string.loginErr,
+                                Toast.LENGTH_LONG);
+                        toast.show();
                     }
                 }
             }
@@ -79,33 +89,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (loginEdtx.getText().toString().equals(null)) {
-                    Toast.makeText(MainActivity.this, R.string.loginPls, Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.loginPls,
+                            Toast.LENGTH_SHORT);
+                    toast.show();
                 } else if (passEdtx.getText().toString().equals(null)) {
-                    Toast.makeText(MainActivity.this, R.string.passPls, Toast.LENGTH_SHORT);
-                } else if (loginEdtx.getText().toString().equals(loginInFile) || passEdtx.getText().toString().equals(passInFile)) {
-                    Toast.makeText(MainActivity.this, R.string.regFail, Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.passPls,
+                            Toast.LENGTH_SHORT);
+                    toast.show();
+                } else if (loginEdtx.getText().toString().equals(loginInFile) || passEdtx.
+                        getText().toString().equals(passInFile)) {
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.regFail,
+                            Toast.LENGTH_LONG);
+                    toast.show();
                 } else {
                     try {
-                        FileOutputStream fileOutputStream = openFileOutput(getString(R.string.loginFileName), MODE_PRIVATE);
-                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+                        FileOutputStream fileOutputStream = openFileOutput(getString(R.string.
+                                loginFileName), MODE_PRIVATE);
+                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+                                fileOutputStream);
                         BufferedWriter bw = new BufferedWriter(outputStreamWriter);
                         bw.write(loginEdtx.getText().toString());
                         bw.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
                     try {
-                        FileOutputStream fileOutputStream = openFileOutput(getString(R.string.passFileName), MODE_PRIVATE);
-                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+                        FileOutputStream fileOutputStream = openFileOutput(getString(R.string.
+                                passFileName), MODE_PRIVATE);
+                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+                                fileOutputStream);
                         BufferedWriter bw = new BufferedWriter(outputStreamWriter);
                         bw.write(passEdtx.getText().toString());
                         bw.close();
-                        Toast.makeText(MainActivity.this, R.string.regOk, Toast.LENGTH_LONG);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
+                        Toast toast = Toast.makeText(MainActivity.this, R.string.regOk,
+                                Toast.LENGTH_LONG);
+                        toast.show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
