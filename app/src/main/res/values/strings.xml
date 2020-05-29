@@ -3,8 +3,7 @@
     <string name="password">password</string>
     <string name="login">login</string>
     <string name="registration">registration</string>
-    <string name="loginPls">Введите логин!</string>
-    <string name="passPls">Введите пароль!</string>
+    <string name="enterPls">Введите логин и пароль!</string>
     <string name="loginFileName">login.txt</string>
     <string name="passFileName">pass.txt</string>
     <string name="loginOk">Авторизация прошла успешно.</string>

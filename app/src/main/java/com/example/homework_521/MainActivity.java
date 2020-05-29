@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (loginEdtx.getText().toString().equals(null)) {
-                    Toast toast = Toast.makeText(MainActivity.this, R.string.loginPls,
+                if (loginEdtx.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.enterPls,
                             Toast.LENGTH_SHORT);
                     toast.show();
 
-                } else if (passEdtx.getText().toString().equals(null)) {
-                    Toast toast = Toast.makeText(MainActivity.this, R.string.passPls,
+                } else if (passEdtx.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.enterPls,
                             Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
@@ -88,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (loginEdtx.getText().toString().equals(null)) {
-                    Toast toast = Toast.makeText(MainActivity.this, R.string.loginPls,
+                if (loginEdtx.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.enterPls,
                             Toast.LENGTH_SHORT);
                     toast.show();
-                } else if (passEdtx.getText().toString().equals(null)) {
-                    Toast toast = Toast.makeText(MainActivity.this, R.string.passPls,
+                } else if (passEdtx.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(MainActivity.this, R.string.enterPls,
                             Toast.LENGTH_SHORT);
                     toast.show();
                 } else if (loginEdtx.getText().toString().equals(loginInFile) || passEdtx.
