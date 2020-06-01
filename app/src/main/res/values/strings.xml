@@ -4,10 +4,13 @@
     <string name="login">login</string>
     <string name="registration">registration</string>
     <string name="enterPls">Введите логин и пароль!</string>
-    <string name="loginFileName">login.txt</string>
-    <string name="passFileName">pass.txt</string>
+    <string name="loginPassFileName">loginPass.txt</string>
     <string name="loginOk">Авторизация прошла успешно.</string>
     <string name="loginErr">Неверные логин и/или пароль!</string>
     <string name="regFail">Логин и/или пароль уже существуют. Авторизируйтесь, или попробуйте другие.</string>
     <string name="regOk">Регистрация прошла успешно.</string>
+    <string name="checkBoxTxt">хранить данные во внешнем хранилище</string>
+    <string name="fileNotFoundExternal">Файла с логином и паролем не существует во внешнем хранилище.</string>
+    <string name="regOkExternal">Регистрация прошла успешно. ДАННЫЕ СОХРАНЕНЫ ВО ВНЕШНЕМ ХРАНИЛИЩЕ!</string>
+    <string name="loginOkExternal">Авторизация прошла успешно. ДАННЫЕ ЗАГРУЖЕНЫ ИЗ ВНЕШНЕГО ХРАНИЛИЩА!</string>
 </resources>
