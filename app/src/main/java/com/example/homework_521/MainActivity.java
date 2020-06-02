@@ -1,8 +1,6 @@
 package com.example.homework_521;
 
-import android.Manifest;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -12,10 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -27,10 +22,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int REQUEST_CODE_PERMISSION_WRITE_STORAGE = 100;
     private static final String EXTERNAL_STORAGE_FILE = "loginPassExternal.txt";
     private EditText loginEdtx;
     private EditText passEdtx;
@@ -49,30 +42,19 @@ public class MainActivity extends AppCompatActivity {
         sharPref = getSharedPreferences("my_prefs", MODE_PRIVATE);
         init();
         checkBoxListen();
-        checkPermissions();
+        checkExternalStorage();
     }
 
-    private void checkPermissions() {
-        int permissionStatus = ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
-            if (isExternalStorageWritable()) {
-                boolean checked = checkBox.isChecked();
-                if (!checked) {
-                    regListen();
-                    loginListen();
-                } else {
-                    regListenExternal();
-                    loginListenExternal();
-                }
+    private void checkExternalStorage() {
+        if (isExternalStorageWritable()) {
+            boolean checked = checkBox.isChecked();
+            if (!checked) {
+                regListen();
+                loginListen();
+            } else {
+                regListenExternal();
+                loginListenExternal();
             }
-
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    REQUEST_CODE_PERMISSION_WRITE_STORAGE
-            );
         }
     }
 
@@ -242,33 +224,10 @@ public class MainActivity extends AppCompatActivity {
         regBtn = findViewById(R.id.regBtn);
         checkBox = findViewById(R.id.checkBox);
         checkBox.setChecked(sharPref.getBoolean(NOTE_TEXT, false));
-
     }
 
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         return Environment.MEDIA_MOUNTED.equals(state);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_PERMISSION_WRITE_STORAGE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (isExternalStorageWritable()) {
-                    if (!checkBox.isChecked()) {
-                        regListen();
-                        loginListen();
-                    } else {
-                        regListenExternal();
-                        loginListenExternal();
-                    }
-                }
-            } else if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                Toast.makeText(MainActivity.this, "Нужно разрешение на чтение фалов", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(MainActivity.this, "Включите разрешение на чтение файлов в настройках", Toast.LENGTH_SHORT).show();
-            }
-        }
     }
 }
