@@ -73,9 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     File file = new File(getExternalFilesDir(null), EXTERNAL_STORAGE_FILE);
-                    BufferedReader reader;
-                    try {
-                        reader = new BufferedReader(new FileReader(file));
+                    try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                         loginInFile = reader.readLine();
                         passInFile = reader.readLine();
                         Toast toast = Toast.makeText(MainActivity.this, R.string.loginOkExternal,
@@ -108,9 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     File file = new File(getExternalFilesDir(null), EXTERNAL_STORAGE_FILE);
-                    BufferedWriter writer;
-                    try {
-                        writer = new BufferedWriter(new FileWriter(file));
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                         writer.write((loginEdtx.getText().toString()) + "\n");
                         writer.write(passEdtx.getText().toString());
                         Toast toast = Toast.makeText(MainActivity.this, R.string.regOkExternal,
